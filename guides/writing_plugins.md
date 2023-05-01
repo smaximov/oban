@@ -42,10 +42,10 @@ defmodule MyApp.Plugins.Breakdown do
 
   @impl Oban.Plugin
   def validate(opts) do
-    Oban.Plugin.valdate(opts,
+    Oban.Plugin.validate(opts,
       {:conf, _} -> :ok
       {:name, _} -> :ok
-      {:interval, _} ->
+      {:interval, interval} ->
         if is_integer(interval) do
           :ok
         else
